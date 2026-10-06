@@ -209,7 +209,18 @@ nav.solid { background: rgba(8,4,6,.9); }
 .reel-item.land { aspect-ratio: 16 / 9; } .reel-item.port { aspect-ratio: 9 / 16; }
 .reel-item video { width: 100%; height: 100%; object-fit: cover; border-radius: 8px; background: #000; }
 .reel-head { max-width: 1240px; margin: 0 auto; padding: 0 40px; }
-@media (max-width: 720px) { .reel { padding: 6px 20px 24px; } .reel-head { padding: 0 20px; } .reel-item { height: 56vh; } }
+.reel-wrap { position: relative; }
+.reel-wrap::after { content: ''; position: absolute; top: 0; bottom: 28px; right: 0; width: 72px; pointer-events: none; z-index: 2; background: linear-gradient(90deg, transparent, var(--bg)); transition: opacity .3s; }
+.reel-wrap.end::after { opacity: 0; }
+.reel-ui { display: flex; align-items: center; justify-content: center; gap: 22px; margin-top: 4px; flex-wrap: wrap; }
+.swipe { font: 500 .62rem/1 var(--mono); letter-spacing: .26em; text-transform: uppercase; color: var(--lilac2); display: inline-flex; align-items: center; gap: 12px; transition: opacity .4s; }
+.swipe i { font-style: normal; font-size: 1.1rem; display: inline-block; animation: nudge 1.4s ease-in-out infinite; }
+.swipe.gone { opacity: 0; }
+@keyframes nudge { 50% { transform: translateX(8px); } }
+.reel-dots { display: flex; gap: 8px; }
+.reel-dots b { width: 7px; height: 7px; border-radius: 50%; background: var(--line2); transition: all .3s; }
+.reel-dots b.on { width: 22px; border-radius: 99px; background: var(--lilac2); }
+@media (max-width: 720px) { .reel { padding: 6px 20px 24px; gap: 12px; scroll-padding: 0 20px; } .reel-head { padding: 0 20px; } .reel-item { scroll-snap-align: start; } .reel-item.port { height: auto; width: 62vw; } .reel-item.land { height: auto; width: 82vw; } }
 
 /* galeria */
 .tabs { display: flex; gap: 10px; margin-bottom: 30px; }
@@ -221,6 +232,9 @@ nav.solid { background: rgba(8,4,6,.9); }
 .gal-item img { width: 100%; height: auto; transition: transform .6s ease, filter .4s; filter: saturate(.95); }
 .gal-item::after { content: ''; position: absolute; inset: 0; border-radius: 8px; box-shadow: inset 0 0 0 1px var(--line2); transition: box-shadow .3s; }
 .gal-item:hover img { transform: scale(1.05); filter: saturate(1.1); } .gal-item:hover::after { box-shadow: inset 0 0 0 1px var(--lilac2), inset 0 0 40px rgba(160,12,36,.4); }
+.gal-more { text-align: center; margin-top: 26px; }
+.gal-more[hidden] { display: none; }
+@media (max-width: 720px) { .gal { columns: 2; column-gap: 10px; } .gal-item { margin-bottom: 10px; border-radius: 6px; } }
 .gal-cta { text-align: center; margin-top: 34px; }
 .lb { position: fixed; inset: 0; z-index: 400; background: rgba(6,2,3,.94); backdrop-filter: blur(10px); display: grid; place-items: center; opacity: 0; transition: opacity .25s; }
 .lb[hidden] { display: none; } .lb.open { opacity: 1; }
@@ -242,17 +256,9 @@ nav.solid { background: rgba(8,4,6,.9); }
 .marq-label { text-align: center; font: 500 .62rem/1 var(--mono); letter-spacing: .38em; text-transform: uppercase; color: var(--mute); margin: 0 0 14px; }
 
 /* rider */
-.rider { display: grid; grid-template-columns: 1.3fr 1fr; gap: 56px; align-items: center; }
-.rig { display: flex; align-items: flex-end; justify-content: center; gap: 12px; padding: 40px 20px 26px; border: 1px solid var(--line2); border-radius: 16px; background: radial-gradient(ellipse at 50% 120%, rgba(160,12,36,.3), transparent 70%), rgba(16,6,8,.6); }
-.rig figure { text-align: center; font: 400 .56rem/1 var(--mono); letter-spacing: .2em; text-transform: uppercase; color: var(--mute); }
-.rig img { margin: 0 auto 12px; filter: drop-shadow(0 18px 24px rgba(0,0,0,.6)); }
-.rig .m img { width: clamp(52px, 8vw, 96px); } .rig .c img { width: clamp(70px, 11vw, 140px); } .rig .v img { width: clamp(84px, 13vw, 170px); } .rig .r img { transform: scaleX(-1); }
-.eq { list-style: none; margin-bottom: 30px; } .eq li { padding: 17px 0 17px 30px; border-bottom: 1px solid var(--line); position: relative; font-size: 1rem; color: var(--mute); }
-.eq li::before { content: ''; position: absolute; left: 2px; top: 50%; width: 10px; height: 10px; transform: translateY(-50%) rotate(45deg); border: 1px solid var(--lilac); background: rgba(224,36,63,.25); }
-.eq b { color: var(--pale); font-weight: 600; }
-.dl { display: flex; flex-direction: column; gap: 12px; align-items: flex-start; }
-.dl small { font-size: .78rem; color: var(--dim); max-width: 380px; line-height: 1.6; }
-@media (max-width: 900px) { .rider { grid-template-columns: 1fr; gap: 36px; } }
+.rider-dl { display: flex; flex-wrap: wrap; gap: 14px; }
+.rider-note { margin-top: 22px; font-size: .82rem; color: var(--dim); max-width: 520px; line-height: 1.7; }
+@media (max-width: 560px) { .rider-dl .btn { width: 100%; justify-content: center; } }
 
 /* agencia */
 #agencia { position: relative; overflow: hidden; border-top: 1px solid var(--line2); border-bottom: 1px solid var(--line2);
@@ -486,14 +492,17 @@ footer img { height: 34px; opacity: .85; }
 <!-- EN VIVO -->
 <section id="vivo">
   <div class="sec" style="padding-bottom:40px"><div class="eyebrow">En cabina</div><h2 class="title chrome reveal" style="margin-bottom:0">En vivo</h2></div>
-  <div class="reel reveal" id="reel">
-        <figure class="reel-item land"><video muted loop playsinline preload="none" poster="assets/v6.jpg" data-src="assets/v6.mp4"></video></figure>
+  <div class="reel-wrap reveal" id="reel-wrap">
+    <div class="reel" id="reel">
         <figure class="reel-item port"><video muted loop playsinline preload="none" poster="assets/v2.jpg" data-src="assets/v2.mp4"></video></figure>
-        <figure class="reel-item land"><video muted loop playsinline preload="none" poster="assets/v7.jpg" data-src="assets/v7.mp4"></video></figure>
+        <figure class="reel-item land"><video muted loop playsinline preload="none" poster="assets/v6.jpg" data-src="assets/v6.mp4"></video></figure>
         <figure class="reel-item port"><video muted loop playsinline preload="none" poster="assets/v3.jpg" data-src="assets/v3.mp4"></video></figure>
-        <figure class="reel-item land"><video muted loop playsinline preload="none" poster="assets/v8.jpg" data-src="assets/v8.mp4"></video></figure>
+        <figure class="reel-item land"><video muted loop playsinline preload="none" poster="assets/v7.jpg" data-src="assets/v7.mp4"></video></figure>
         <figure class="reel-item port"><video muted loop playsinline preload="none" poster="assets/v4.jpg" data-src="assets/v4.mp4"></video></figure>
+        <figure class="reel-item land"><video muted loop playsinline preload="none" poster="assets/v8.jpg" data-src="assets/v8.mp4"></video></figure>
+    </div>
   </div>
+  <div class="reel-ui"><span class="swipe" id="swipe">Deslizá para ver más <i>→</i></span><div class="reel-dots" id="reel-dots"></div></div>
 </section>
 
 <!-- GALERIA -->
@@ -538,7 +547,8 @@ footer img { height: 34px; opacity: .85; }
       <button class="gal-item" type="button" data-g="liv" data-i="32" aria-label="Ver foto 33"><img src="assets/l13.jpg" alt="AILEN DC" loading="lazy"></button>
       <button class="gal-item" type="button" data-g="liv" data-i="33" aria-label="Ver foto 34"><img src="assets/l14.jpg" alt="AILEN DC" loading="lazy"></button>
     </div>
-    <div class="gal-cta"><a class="btn btn-ghost" href="AILEN_DC_PRESS_PACK.zip" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 19.5h14"/></svg> Press pack · fotos y logos (ZIP)</a></div>
+    <div class="gal-more"><button class="btn btn-solid" type="button" id="gal-more"></button></div>
+    <div class="gal-cta"><a class="btn btn-ghost" href="AILEN_DC_PRESS_PACK.zip" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 19.5h14"/></svg> Press pack · ZIP</a></div>
   </div>
 </section>
 
@@ -557,23 +567,11 @@ footer img { height: 34px; opacity: .85; }
   <div class="sec">
     <div class="eyebrow">Técnico</div>
     <h2 class="title chrome reveal">Rider</h2>
-    <div class="rider">
-      <div class="reveal">
-        <ul class="eq"><li><b>1× Pioneer DJM-V10</b> mixer</li><li><b>2× Pioneer CDJ-3000</b> linkeadas y con la última actualización</li><li><b>2× monitores</b> de alta potencia</li></ul>
-        <div class="dl">
-          <a class="btn btn-solid" href="AILEN_DC_RIDER_TECNICO.pdf" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 19.5h14"/></svg> Rider técnico · PDF</a>
-          <button class="btn btn-ghost" type="button" id="hosp-open"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><rect x="5" y="10.5" width="14" height="9.5" rx="2"/><path d="M8 10.5V8a4 4 0 0 1 8 0v2.5"/></svg> Hospitality rider · acceso con clave</button>
-          <small>El hospitality rider es confidencial: se descarga como PDF protegido y se abre con la clave que Ailen o su booking brindan a las productoras interesadas.</small>
-        </div>
-      </div>
-      <div class="rig reveal">
-        <figure class="m"><img src="assets/monitor.png" alt="Monitor" loading="lazy">Monitor</figure>
-        <figure class="c"><img src="assets/cdj3000.png" alt="CDJ-3000" loading="lazy">CDJ-3000</figure>
-        <figure class="v"><img src="assets/djmv10.png" alt="DJM-V10" loading="lazy">DJM-V10</figure>
-        <figure class="c"><img src="assets/cdj3000.png" alt="CDJ-3000" loading="lazy">CDJ-3000</figure>
-        <figure class="m r"><img src="assets/monitor.png" alt="Monitor" loading="lazy">Monitor</figure>
-      </div>
+    <div class="rider-dl reveal">
+      <a class="btn btn-solid" href="AILEN_DC_RIDER_TECNICO.pdf" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 19.5h14"/></svg> Descargar rider técnico</a>
+      <button class="btn btn-ghost" type="button" id="hosp-open"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><rect x="5" y="10.5" width="14" height="9.5" rx="2"/><path d="M8 10.5V8a4 4 0 0 1 8 0v2.5"/></svg> Hospitality rider · con clave</button>
     </div>
+    <p class="rider-note reveal">El hospitality rider es confidencial: se descarga con la clave que Ailen o su equipo de booking brindan a las productoras interesadas.</p>
   </div>
 </section>
 
@@ -673,9 +671,30 @@ footer img { height: 34px; opacity: .85; }
   }); }, { threshold: .35 });
   $$('#reel video').forEach(function (v) { vio.observe(v); });
 
+  // reel: puntos + pista de deslizar
+  (function () {
+    var reel = $('#reel'), wrap = $('#reel-wrap'), dots = $('#reel-dots'), sw = $('#swipe'), its = $$('.reel-item', reel);
+    its.forEach(function () { dots.appendChild(document.createElement('b')); }); var ds = $$('b', dots);
+    function upd() {
+      var c = reel.scrollLeft + reel.clientWidth / 2, best = 0, bd = 1e9;
+      its.forEach(function (it, i) { var d = Math.abs(it.offsetLeft + it.offsetWidth / 2 - c); if (d < bd) { bd = d; best = i; } });
+      if (reel.scrollLeft < 8) best = 0; if (reel.scrollLeft + reel.clientWidth >= reel.scrollWidth - 8) best = its.length - 1;
+      ds.forEach(function (d, i) { d.classList.toggle('on', i === best); });
+      wrap.classList.toggle('end', reel.scrollLeft + reel.clientWidth >= reel.scrollWidth - 8);
+      if (reel.scrollLeft > 40) sw.classList.add('gone');
+    }
+    reel.addEventListener('scroll', upd, { passive: true }); addEventListener('resize', upd); upd();
+  })();
+
   // galeria + lightbox
   var items = $$('.gal-item'), srcs = ["assets/e01.jpg","assets/e02.jpg","assets/e03.jpg","assets/e04.jpg","assets/e05.jpg","assets/e06.jpg","assets/e07.jpg","assets/e08.jpg","assets/e09.jpg","assets/e10.jpg","assets/e11.jpg","assets/e12.jpg","assets/e13.jpg","assets/e14.jpg","assets/e15.jpg","assets/e16.jpg","assets/e17.jpg","assets/e18.jpg","assets/e19.jpg","assets/e20.jpg","assets/l01.jpg","assets/l02.jpg","assets/l03.jpg","assets/l04.jpg","assets/l05.jpg","assets/l06.jpg","assets/l07.jpg","assets/l08.jpg","assets/l09.jpg","assets/l10.jpg","assets/l11.jpg","assets/l12.jpg","assets/l13.jpg","assets/l14.jpg"], cur_i = 0, lb = $('#lb'), lbi = $('#lbImg'), vis = [];
-  function filter(f) { items.forEach(function (it) { it.hidden = it.dataset.g !== f; }); vis = items.filter(function (it) { return !it.hidden; }); }
+  var LIMIT = innerWidth < 720 ? 8 : 12, curF = 'est', moreBtn = $('#gal-more');
+  function filter(f, all) {
+    curF = f; vis = items.filter(function (it) { return it.dataset.g === f; });
+    items.forEach(function (it) { var i = vis.indexOf(it); it.hidden = i < 0 || (!all && i >= LIMIT); });
+    var rest = vis.length - LIMIT; moreBtn.parentNode.hidden = !!all || rest <= 0; moreBtn.textContent = 'Ver ' + rest + ' fotos más';
+  }
+  moreBtn.addEventListener('click', function () { filter(curF, true); });
   $$('.tab').forEach(function (t) { t.addEventListener('click', function () { $$('.tab').forEach(function (x) { x.classList.remove('on'); }); t.classList.add('on'); filter(t.dataset.f); }); });
   filter('est');
   function show(n) { cur_i = (n + vis.length) % vis.length; lbi.src = srcs[+vis[cur_i].dataset.i]; }
