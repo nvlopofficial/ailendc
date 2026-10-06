@@ -295,6 +295,16 @@ nav.solid { background: rgba(7,4,15,.9); }
 .modal-box p { color: var(--mute); font-size: .92rem; line-height: 1.75; margin-bottom: 24px; }
 .modal-box .stack { display: flex; flex-direction: column; gap: 12px; } .modal-box .b-card { min-width: 0; width: 100%; }
 
+.pw-form { display: flex; flex-direction: column; gap: 12px; }
+.pw-form input { width: 100%; padding: 16px 20px; border-radius: 99px; border: 1px solid var(--line2); background: rgba(160,112,240,.07); color: var(--pale); font: 500 1rem/1 var(--mono); letter-spacing: .3em; text-align: center; transition: border-color .2s, box-shadow .2s; }
+.pw-form input::placeholder { letter-spacing: .2em; color: var(--dim); text-transform: uppercase; font-size: .75rem; }
+.pw-form input:focus { outline: none; border-color: var(--lilac2); box-shadow: 0 0 0 4px rgba(160,112,240,.18); }
+.pw-form.err input { border-color: #ff7a9c; animation: shake .35s; }
+.pw-form .btn { justify-content: center; } .pw-form .btn[disabled] { opacity: .6; pointer-events: none; }
+.pw-msg { min-height: 1.3em; font-size: .85rem; color: var(--mute); } .pw-form.err .pw-msg { color: #ff9db6; } .pw-form.ok .pw-msg { color: var(--lilac2); }
+.pw-req { display: inline-block; margin-top: 18px; font: 400 .66rem/1.4 var(--mono); letter-spacing: .12em; color: var(--dim); text-decoration: underline; text-underline-offset: 4px; } .pw-req:hover { color: var(--pale); }
+@keyframes shake { 20%, 60% { transform: translateX(-6px); } 40%, 80% { transform: translateX(6px); } }
+
 footer { border-top: 1px solid var(--line); padding: 38px 40px; display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; font: 400 .6rem/1.8 var(--mono); letter-spacing: .24em; text-transform: uppercase; color: var(--dim); }
 footer img { height: 34px; opacity: .85; }
 @media (max-width: 720px) { footer { flex-direction: column; text-align: center; } }
@@ -329,11 +339,14 @@ footer img { height: 34px; opacity: .85; }
 <div class="modal" id="hosp-modal" role="dialog" aria-modal="true" aria-label="Hospitality rider" hidden>
   <div class="modal-box"><button class="modal-x" type="button" aria-label="Cerrar">×</button>
     <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><rect x="5" y="10.5" width="14" height="9.5" rx="2"/><path d="M8 10.5V8a4 4 0 0 1 8 0v2.5"/></svg></div><h3>Hospitality Rider</h3>
-    <p>Documento confidencial, solo para bookers y productoras interesadas. Descargá el PDF y abrilo con la clave que te brinda Ailen o su equipo de booking.</p>
-    <div class="stack">
-      <a class="btn btn-solid" href="AILEN_DC_HOSPITALITY_RIDER.pdf" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 19.5h14"/></svg> Descargar PDF</a>
-      <a class="btn btn-ghost" href="mailto:Divergenteagency.booking@gmail.com?subject=Clave%20Hospitality%20Rider%20%E2%80%94%20AILEN%20DC&body=Hola!%20Quisiera%20solicitar%20la%20clave%20del%20Hospitality%20Rider%20de%20AILEN%20DC.%0A%0AEvento%20%2F%20fecha%3A%0AProductora%20%2F%20club%3A%0ANombre%3A"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 7 8.5 6.5L20.5 7"/></svg> Solicitar clave</a>
-    </div></div>
+    <p>Documento confidencial, solo para bookers y productoras interesadas. Ingresá la clave que te brindó Ailen o su equipo de booking.</p>
+    <form class="pw-form" id="hosp-form" autocomplete="off" novalidate>
+      <input id="hosp-pw" type="password" placeholder="Clave" aria-label="Clave" autocomplete="off" autocapitalize="characters" spellcheck="false" required>
+      <button class="btn btn-solid" type="submit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 19.5h14"/></svg> Descargar</button>
+      <div class="pw-msg" id="hosp-msg" role="status" aria-live="polite"></div>
+    </form>
+    <a class="pw-req" href="mailto:Divergenteagency.booking@gmail.com?subject=Clave%20Hospitality%20Rider%20%E2%80%94%20AILEN%20DC&body=Hola!%20Quisiera%20solicitar%20la%20clave%20del%20Hospitality%20Rider%20de%20AILEN%20DC.%0A%0AEvento%20%2F%20fecha%3A%0AProductora%20%2F%20club%3A%0ANombre%3A">¿No tenés la clave? Solicitala a booking</a>
+  </div>
 </div>
 
 <div class="lb" id="lb" hidden><button class="x" type="button" aria-label="Cerrar">×</button><button class="pv" type="button" aria-label="Anterior">‹</button><img id="lbImg" alt="AILEN DC"><button class="nx" type="button" aria-label="Siguiente">›</button></div>
@@ -685,6 +698,30 @@ footer img { height: 34px; opacity: .85; }
   }
   modal($('#book-modal'), [$('#book-open')]); modal($('#hosp-modal'), [$('#hosp-open')]);
   document.addEventListener('keydown', function (e) { if (lb.hidden) return; if (e.key === 'Escape') closeLb(); if (e.key === 'ArrowLeft') show(cur_i - 1); if (e.key === 'ArrowRight') show(cur_i + 1); });
+
+  // hospitality: el PDF esta cifrado (AES-GCM); se descifra aca con la clave y se descarga
+  (function () {
+    var form = $('#hosp-form'), pw = $('#hosp-pw'), msg = $('#hosp-msg'), btn = $('button[type=submit]', form);
+    var URL_ENC = 'AILEN_DC_HOSPITALITY_RIDER.enc', NAME = 'AILEN_DC_HOSPITALITY_RIDER.pdf';
+    $('#hosp-open').addEventListener('click', function () { setTimeout(function () { pw.focus(); }, 60); });
+    function state(c, t) { form.className = 'pw-form' + (c ? ' ' + c : ''); msg.textContent = t || ''; }
+    form.addEventListener('submit', function (e) {
+      e.preventDefault(); var v = pw.value.trim().toUpperCase(); if (!v) { state('err', 'Ingresá la clave.'); return; }
+      if (!window.crypto || !crypto.subtle) { state('err', 'Abrí el presskit desde su link web (https) para descargar.'); return; }
+      btn.disabled = true; state('', 'Verificando…');
+      fetch(URL_ENC, { cache: 'no-store' }).then(function (r) { if (!r.ok) throw new Error('net'); return r.arrayBuffer(); }).then(function (ab) {
+        var b = new Uint8Array(ab), salt = b.slice(0, 16), iv = b.slice(16, 28), data = b.slice(28), te = new TextEncoder();
+        return crypto.subtle.importKey('raw', te.encode(v), 'PBKDF2', false, ['deriveKey']).then(function (base) {
+          return crypto.subtle.deriveKey({ name: 'PBKDF2', salt: salt, iterations: 250000, hash: 'SHA-256' }, base, { name: 'AES-GCM', length: 256 }, false, ['decrypt']);
+        }).then(function (k) { return crypto.subtle.decrypt({ name: 'AES-GCM', iv: iv }, k, data).catch(function () { throw new Error('bad'); }); });
+      }).then(function (pdf) {
+        var a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([pdf], { type: 'application/pdf' })); a.download = NAME; document.body.appendChild(a); a.click();
+        setTimeout(function () { URL.revokeObjectURL(a.href); a.remove(); }, 4000);
+        state('ok', 'Clave correcta. Descargando…'); pw.value = '';
+      }).catch(function (err) { state('err', err.message === 'bad' ? 'Clave incorrecta. Probá de nuevo.' : 'No se pudo descargar. Intentá de nuevo.'); pw.select(); })
+        .then(function () { btn.disabled = false; });
+    });
+  })();
 
   // PROXIMAS FECHAS — Google Sheet que edita la artista. Se ocultan solas las que ya pasaron.
   (function () {
