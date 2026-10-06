@@ -328,8 +328,8 @@ footer img { height: 34px; opacity: .85; }
 <nav id="nav">
   <a class="nav-logo" href="#hero" aria-label="AILEN DC"><img src="assets/logo-moon.png" alt="AILEN DC"></a>
   <ul class="nav-links">
-    <li><a href="#videoclip">Videoclip</a></li><li><a href="#bio">Bio</a></li><li><a href="#fechas">Fechas</a></li><li><a href="#musica">Música</a></li><li><a href="#vivo">En vivo</a></li>
-    <li><a href="#galeria">Galería</a></li><li><a href="#rider">Rider</a></li><li><a href="#agencia">Agencia</a></li><li><a href="#contacto">Contacto</a></li>
+    <li><a href="#bio">Bio</a></li><li><a href="#galeria">Galería</a></li><li><a href="#vivo">En vivo</a></li><li><a href="#videoclip">Videoclip</a></li><li><a href="#musica">Música</a></li>
+    <li><a href="#fechas">Fechas</a></li><li><a href="#rider">Rider</a></li><li><a href="#agencia">Agencia</a></li><li><a href="#contacto">Contacto</a></li>
   </ul>
   <a class="btn btn-solid" id="book-open" href="#contacto">Booking</a>
 </nav>
@@ -362,26 +362,12 @@ footer img { height: 34px; opacity: .85; }
   <div class="hero-rays"></div>
   <div class="hero-photo"><img src="assets/hero.jpg" alt="AILEN DC" fetchpriority="high"></div>
   <div class="hero-content">
-    <div class="hero-tag">Electronic Presskit · 2026</div>
     <h1 class="hero-logo logo-wrap" aria-label="AILEN DC"><span class="logo-chrome"></span></h1>
     <p class="hero-sub">Techno<span>/</span>Melodic Techno<span>/</span>Dark Tech</p>
     <div class="hero-badges"><span class="badge on">DJ &amp; Productora</span><span class="badge">Buenos Aires · ARG</span><span class="badge">533 Frequency</span><span class="badge">Divergente Agency</span></div>
     <div class="hero-cta"><a class="btn btn-solid" href="#videoclip">&#9654;&nbsp; Ver videoclip</a><a class="btn btn-ghost" href="#fechas">Próximas fechas</a></div>
   </div>
   <div class="hero-scroll">Scroll</div>
-</section>
-
-<!-- VIDEOCLIP -->
-<section id="videoclip">
-  <div class="vc-bg" style="background-image:url(https://i.ytimg.com/vi/LpVpG8JLFIc/maxresdefault.jpg)"></div>
-  <div class="vc-in">
-    <div class="eyebrow reveal" style="justify-content:center">Videoclip oficial · 533 Frequency</div>
-    <h2 class="vc-title chrome reveal">Ocean Eyes</h2>
-    <p class="vc-feat reveal">Ailen DC <span>ft.</span> Sofia Buono</p>
-    <div class="yt-lite vc-player reveal" id="feat-yt"><div><img src="https://i.ytimg.com/vi/LpVpG8JLFIc/maxresdefault.jpg" alt="Ocean Eyes — videoclip oficial" loading="lazy"><button class="play" type="button" data-id="LpVpG8JLFIc" data-t="0" aria-label="Reproducir videoclip"><i></i></button></div></div>
-    <p class="vc-text reveal">Su tema con videoclip: melodía hipnótica, groove profundo y una estética que resume el universo de Ailen DC.</p>
-    <div class="vc-row reveal"><a class="btn btn-solid" href="https://open.spotify.com/album/02Ekj03QeeQXejzJ2EwJRv" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M7 9.5c3.5-1 7-.7 10 1M7.5 12.7c3-.8 6-.5 8.6 1M8 15.7c2.4-.6 4.7-.4 7 .8"/></svg> Escuchar en Spotify</a><a class="btn btn-ghost" href="https://www.youtube.com/watch?v=LpVpG8JLFIc" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><rect x="2.5" y="5.5" width="19" height="13" rx="4"/><path d="M10 9.2v5.6l5-2.8z" fill="currentColor"/></svg> Ver en YouTube</a></div>
-  </div>
 </section>
 
 <!-- BIO -->
@@ -405,12 +391,79 @@ footer img { height: 34px; opacity: .85; }
   </div>
 </section>
 
-<!-- PROXIMAS FECHAS -->
-<section id="fechas">
+<!-- GALERIA -->
+<section id="galeria">
   <div class="sec">
-    <div class="eyebrow">Agenda</div>
-    <h2 class="title chrome reveal">Próximas fechas</h2>
-    <div class="gigs reveal" id="gigs"><div class="skeleton"></div><div class="skeleton"></div><div class="skeleton"></div></div>
+    <div class="eyebrow">Fotos</div>
+    <h2 class="title chrome reveal">Galería</h2>
+    <div class="tabs reveal"><button class="tab on" type="button" data-f="est">Estudio</button><button class="tab" type="button" data-f="liv">En vivo</button></div>
+    <div class="gal" id="gal">
+      <button class="gal-item" type="button" data-g="est" data-i="0" aria-label="Ver foto 1"><img src="assets/e01.jpg" alt="AILEN DC" loading="lazy"></button>
+      <button class="gal-item" type="button" data-g="est" data-i="1" aria-label="Ver foto 2"><img src="assets/e02.jpg" alt="AILEN DC" loading="lazy"></button>
+      <button class="gal-item" type="button" data-g="est" data-i="2" aria-label="Ver foto 3"><img src="assets/e03.jpg" alt="AILEN DC" loading="lazy"></button>
+      <button class="gal-item" type="button" data-g="est" data-i="3" aria-label="Ver foto 4"><img src="assets/e04.jpg" alt="AILEN DC" loading="lazy"></button>
+      <button class="gal-item" type="button" data-g="est" data-i="4" aria-label="Ver foto 5"><img src="assets/e05.jpg" alt="AILEN DC" loading="lazy"></button>
+      <button class="gal-item" type="button" data-g="est" data-i="5" aria-label="Ver foto 6"><img src="assets/e06.jpg" alt="AILEN DC" loading="lazy"></button>
+      <button class="gal-item" type="button" data-g="est" data-i="6" aria-label="Ver foto 7"><img src="assets/e07.jpg" alt="AILEN DC" loading="lazy"></button>
+      <button class="gal-item" type="button" data-g="est" data-i="7" aria-label="Ver foto 8"><img src="assets/e08.jpg" alt="AILEN DC" loading="lazy"></button>
+      <button class="gal-item" type="button" data-g="est" data-i="8" aria-label="Ver foto 9"><img src="assets/e09.jpg" alt="AILEN DC" loading="lazy"></button>
+      <button class="gal-item" type="button" data-g="est" data-i="9" aria-label="Ver foto 10"><img src="assets/e10.jpg" alt="AILEN DC" loading="lazy"></button>
+      <button class="gal-item" type="button" data-g="est" data-i="10" aria-label="Ver foto 11"><img src="assets/e11.jpg" alt="AILEN DC" loading="lazy"></button>
+      <button class="gal-item" type="button" data-g="est" data-i="11" aria-label="Ver foto 12"><img src="assets/e12.jpg" alt="AILEN DC" loading="lazy"></button>
+      <button class="gal-item" type="button" data-g="est" data-i="12" aria-label="Ver foto 13"><img src="assets/e13.jpg" alt="AILEN DC" loading="lazy"></button>
+      <button class="gal-item" type="button" data-g="est" data-i="13" aria-label="Ver foto 14"><img src="assets/e14.jpg" alt="AILEN DC" loading="lazy"></button>
+      <button class="gal-item" type="button" data-g="est" data-i="14" aria-label="Ver foto 15"><img src="assets/e15.jpg" alt="AILEN DC" loading="lazy"></button>
+      <button class="gal-item" type="button" data-g="est" data-i="15" aria-label="Ver foto 16"><img src="assets/e16.jpg" alt="AILEN DC" loading="lazy"></button>
+      <button class="gal-item" type="button" data-g="est" data-i="16" aria-label="Ver foto 17"><img src="assets/e17.jpg" alt="AILEN DC" loading="lazy"></button>
+      <button class="gal-item" type="button" data-g="est" data-i="17" aria-label="Ver foto 18"><img src="assets/e18.jpg" alt="AILEN DC" loading="lazy"></button>
+      <button class="gal-item" type="button" data-g="est" data-i="18" aria-label="Ver foto 19"><img src="assets/e19.jpg" alt="AILEN DC" loading="lazy"></button>
+      <button class="gal-item" type="button" data-g="est" data-i="19" aria-label="Ver foto 20"><img src="assets/e20.jpg" alt="AILEN DC" loading="lazy"></button>
+      <button class="gal-item" type="button" data-g="liv" data-i="20" aria-label="Ver foto 21"><img src="assets/l01.jpg" alt="AILEN DC" loading="lazy"></button>
+      <button class="gal-item" type="button" data-g="liv" data-i="21" aria-label="Ver foto 22"><img src="assets/l02.jpg" alt="AILEN DC" loading="lazy"></button>
+      <button class="gal-item" type="button" data-g="liv" data-i="22" aria-label="Ver foto 23"><img src="assets/l03.jpg" alt="AILEN DC" loading="lazy"></button>
+      <button class="gal-item" type="button" data-g="liv" data-i="23" aria-label="Ver foto 24"><img src="assets/l04.jpg" alt="AILEN DC" loading="lazy"></button>
+      <button class="gal-item" type="button" data-g="liv" data-i="24" aria-label="Ver foto 25"><img src="assets/l05.jpg" alt="AILEN DC" loading="lazy"></button>
+      <button class="gal-item" type="button" data-g="liv" data-i="25" aria-label="Ver foto 26"><img src="assets/l06.jpg" alt="AILEN DC" loading="lazy"></button>
+      <button class="gal-item" type="button" data-g="liv" data-i="26" aria-label="Ver foto 27"><img src="assets/l07.jpg" alt="AILEN DC" loading="lazy"></button>
+      <button class="gal-item" type="button" data-g="liv" data-i="27" aria-label="Ver foto 28"><img src="assets/l08.jpg" alt="AILEN DC" loading="lazy"></button>
+      <button class="gal-item" type="button" data-g="liv" data-i="28" aria-label="Ver foto 29"><img src="assets/l09.jpg" alt="AILEN DC" loading="lazy"></button>
+      <button class="gal-item" type="button" data-g="liv" data-i="29" aria-label="Ver foto 30"><img src="assets/l10.jpg" alt="AILEN DC" loading="lazy"></button>
+      <button class="gal-item" type="button" data-g="liv" data-i="30" aria-label="Ver foto 31"><img src="assets/l11.jpg" alt="AILEN DC" loading="lazy"></button>
+      <button class="gal-item" type="button" data-g="liv" data-i="31" aria-label="Ver foto 32"><img src="assets/l12.jpg" alt="AILEN DC" loading="lazy"></button>
+      <button class="gal-item" type="button" data-g="liv" data-i="32" aria-label="Ver foto 33"><img src="assets/l13.jpg" alt="AILEN DC" loading="lazy"></button>
+      <button class="gal-item" type="button" data-g="liv" data-i="33" aria-label="Ver foto 34"><img src="assets/l14.jpg" alt="AILEN DC" loading="lazy"></button>
+    </div>
+    <div class="gal-more"><button class="btn btn-solid" type="button" id="gal-more"></button></div>
+    <div class="gal-cta"><a class="btn btn-ghost" href="AILEN_DC_PRESS_PACK.zip" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 19.5h14"/></svg> Press pack · ZIP</a></div>
+  </div>
+</section>
+
+<!-- EN VIVO -->
+<section id="vivo">
+  <div class="sec" style="padding-bottom:40px"><div class="eyebrow">En cabina</div><h2 class="title chrome reveal" style="margin-bottom:0">En vivo</h2></div>
+  <div class="reel-wrap reveal" id="reel-wrap">
+    <div class="reel" id="reel">
+        <figure class="reel-item port"><video muted loop playsinline preload="none" poster="assets/v2.jpg" data-src="assets/v2.mp4"></video></figure>
+        <figure class="reel-item land"><video muted loop playsinline preload="none" poster="assets/v6.jpg" data-src="assets/v6.mp4"></video></figure>
+        <figure class="reel-item port"><video muted loop playsinline preload="none" poster="assets/v3.jpg" data-src="assets/v3.mp4"></video></figure>
+        <figure class="reel-item land"><video muted loop playsinline preload="none" poster="assets/v7.jpg" data-src="assets/v7.mp4"></video></figure>
+        <figure class="reel-item port"><video muted loop playsinline preload="none" poster="assets/v4.jpg" data-src="assets/v4.mp4"></video></figure>
+        <figure class="reel-item land"><video muted loop playsinline preload="none" poster="assets/v8.jpg" data-src="assets/v8.mp4"></video></figure>
+    </div>
+  </div>
+  <div class="reel-ui"><span class="swipe" id="swipe">Deslizá para ver más <i>→</i></span><div class="reel-dots" id="reel-dots"></div></div>
+</section>
+
+<!-- VIDEOCLIP -->
+<section id="videoclip">
+  <div class="vc-bg" style="background-image:url(https://i.ytimg.com/vi/LpVpG8JLFIc/maxresdefault.jpg)"></div>
+  <div class="vc-in">
+    <div class="eyebrow reveal" style="justify-content:center">Videoclip oficial · 533 Frequency</div>
+    <h2 class="vc-title chrome reveal">Ocean Eyes</h2>
+    <p class="vc-feat reveal">Ailen DC <span>ft.</span> Sofia Buono</p>
+    <div class="yt-lite vc-player reveal" id="feat-yt"><div><img src="https://i.ytimg.com/vi/LpVpG8JLFIc/maxresdefault.jpg" alt="Ocean Eyes — videoclip oficial" loading="lazy"><button class="play" type="button" data-id="LpVpG8JLFIc" data-t="0" aria-label="Reproducir videoclip"><i></i></button></div></div>
+    <p class="vc-text reveal">Su tema con videoclip: melodía hipnótica, groove profundo y una estética que resume el universo de Ailen DC.</p>
+    <div class="vc-row reveal"><a class="btn btn-solid" href="https://open.spotify.com/album/02Ekj03QeeQXejzJ2EwJRv" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M7 9.5c3.5-1 7-.7 10 1M7.5 12.7c3-.8 6-.5 8.6 1M8 15.7c2.4-.6 4.7-.4 7 .8"/></svg> Escuchar en Spotify</a><a class="btn btn-ghost" href="https://www.youtube.com/watch?v=LpVpG8JLFIc" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><rect x="2.5" y="5.5" width="19" height="13" rx="4"/><path d="M10 9.2v5.6l5-2.8z" fill="currentColor"/></svg> Ver en YouTube</a></div>
   </div>
 </section>
 
@@ -489,69 +542,6 @@ footer img { height: 34px; opacity: .85; }
   </div>
 </section>
 
-<!-- EN VIVO -->
-<section id="vivo">
-  <div class="sec" style="padding-bottom:40px"><div class="eyebrow">En cabina</div><h2 class="title chrome reveal" style="margin-bottom:0">En vivo</h2></div>
-  <div class="reel-wrap reveal" id="reel-wrap">
-    <div class="reel" id="reel">
-        <figure class="reel-item port"><video muted loop playsinline preload="none" poster="assets/v2.jpg" data-src="assets/v2.mp4"></video></figure>
-        <figure class="reel-item land"><video muted loop playsinline preload="none" poster="assets/v6.jpg" data-src="assets/v6.mp4"></video></figure>
-        <figure class="reel-item port"><video muted loop playsinline preload="none" poster="assets/v3.jpg" data-src="assets/v3.mp4"></video></figure>
-        <figure class="reel-item land"><video muted loop playsinline preload="none" poster="assets/v7.jpg" data-src="assets/v7.mp4"></video></figure>
-        <figure class="reel-item port"><video muted loop playsinline preload="none" poster="assets/v4.jpg" data-src="assets/v4.mp4"></video></figure>
-        <figure class="reel-item land"><video muted loop playsinline preload="none" poster="assets/v8.jpg" data-src="assets/v8.mp4"></video></figure>
-    </div>
-  </div>
-  <div class="reel-ui"><span class="swipe" id="swipe">Deslizá para ver más <i>→</i></span><div class="reel-dots" id="reel-dots"></div></div>
-</section>
-
-<!-- GALERIA -->
-<section id="galeria" class="band">
-  <div class="sec">
-    <div class="eyebrow">Fotos</div>
-    <h2 class="title chrome reveal">Galería</h2>
-    <div class="tabs reveal"><button class="tab on" type="button" data-f="est">Estudio</button><button class="tab" type="button" data-f="liv">En vivo</button></div>
-    <div class="gal" id="gal">
-      <button class="gal-item" type="button" data-g="est" data-i="0" aria-label="Ver foto 1"><img src="assets/e01.jpg" alt="AILEN DC" loading="lazy"></button>
-      <button class="gal-item" type="button" data-g="est" data-i="1" aria-label="Ver foto 2"><img src="assets/e02.jpg" alt="AILEN DC" loading="lazy"></button>
-      <button class="gal-item" type="button" data-g="est" data-i="2" aria-label="Ver foto 3"><img src="assets/e03.jpg" alt="AILEN DC" loading="lazy"></button>
-      <button class="gal-item" type="button" data-g="est" data-i="3" aria-label="Ver foto 4"><img src="assets/e04.jpg" alt="AILEN DC" loading="lazy"></button>
-      <button class="gal-item" type="button" data-g="est" data-i="4" aria-label="Ver foto 5"><img src="assets/e05.jpg" alt="AILEN DC" loading="lazy"></button>
-      <button class="gal-item" type="button" data-g="est" data-i="5" aria-label="Ver foto 6"><img src="assets/e06.jpg" alt="AILEN DC" loading="lazy"></button>
-      <button class="gal-item" type="button" data-g="est" data-i="6" aria-label="Ver foto 7"><img src="assets/e07.jpg" alt="AILEN DC" loading="lazy"></button>
-      <button class="gal-item" type="button" data-g="est" data-i="7" aria-label="Ver foto 8"><img src="assets/e08.jpg" alt="AILEN DC" loading="lazy"></button>
-      <button class="gal-item" type="button" data-g="est" data-i="8" aria-label="Ver foto 9"><img src="assets/e09.jpg" alt="AILEN DC" loading="lazy"></button>
-      <button class="gal-item" type="button" data-g="est" data-i="9" aria-label="Ver foto 10"><img src="assets/e10.jpg" alt="AILEN DC" loading="lazy"></button>
-      <button class="gal-item" type="button" data-g="est" data-i="10" aria-label="Ver foto 11"><img src="assets/e11.jpg" alt="AILEN DC" loading="lazy"></button>
-      <button class="gal-item" type="button" data-g="est" data-i="11" aria-label="Ver foto 12"><img src="assets/e12.jpg" alt="AILEN DC" loading="lazy"></button>
-      <button class="gal-item" type="button" data-g="est" data-i="12" aria-label="Ver foto 13"><img src="assets/e13.jpg" alt="AILEN DC" loading="lazy"></button>
-      <button class="gal-item" type="button" data-g="est" data-i="13" aria-label="Ver foto 14"><img src="assets/e14.jpg" alt="AILEN DC" loading="lazy"></button>
-      <button class="gal-item" type="button" data-g="est" data-i="14" aria-label="Ver foto 15"><img src="assets/e15.jpg" alt="AILEN DC" loading="lazy"></button>
-      <button class="gal-item" type="button" data-g="est" data-i="15" aria-label="Ver foto 16"><img src="assets/e16.jpg" alt="AILEN DC" loading="lazy"></button>
-      <button class="gal-item" type="button" data-g="est" data-i="16" aria-label="Ver foto 17"><img src="assets/e17.jpg" alt="AILEN DC" loading="lazy"></button>
-      <button class="gal-item" type="button" data-g="est" data-i="17" aria-label="Ver foto 18"><img src="assets/e18.jpg" alt="AILEN DC" loading="lazy"></button>
-      <button class="gal-item" type="button" data-g="est" data-i="18" aria-label="Ver foto 19"><img src="assets/e19.jpg" alt="AILEN DC" loading="lazy"></button>
-      <button class="gal-item" type="button" data-g="est" data-i="19" aria-label="Ver foto 20"><img src="assets/e20.jpg" alt="AILEN DC" loading="lazy"></button>
-      <button class="gal-item" type="button" data-g="liv" data-i="20" aria-label="Ver foto 21"><img src="assets/l01.jpg" alt="AILEN DC" loading="lazy"></button>
-      <button class="gal-item" type="button" data-g="liv" data-i="21" aria-label="Ver foto 22"><img src="assets/l02.jpg" alt="AILEN DC" loading="lazy"></button>
-      <button class="gal-item" type="button" data-g="liv" data-i="22" aria-label="Ver foto 23"><img src="assets/l03.jpg" alt="AILEN DC" loading="lazy"></button>
-      <button class="gal-item" type="button" data-g="liv" data-i="23" aria-label="Ver foto 24"><img src="assets/l04.jpg" alt="AILEN DC" loading="lazy"></button>
-      <button class="gal-item" type="button" data-g="liv" data-i="24" aria-label="Ver foto 25"><img src="assets/l05.jpg" alt="AILEN DC" loading="lazy"></button>
-      <button class="gal-item" type="button" data-g="liv" data-i="25" aria-label="Ver foto 26"><img src="assets/l06.jpg" alt="AILEN DC" loading="lazy"></button>
-      <button class="gal-item" type="button" data-g="liv" data-i="26" aria-label="Ver foto 27"><img src="assets/l07.jpg" alt="AILEN DC" loading="lazy"></button>
-      <button class="gal-item" type="button" data-g="liv" data-i="27" aria-label="Ver foto 28"><img src="assets/l08.jpg" alt="AILEN DC" loading="lazy"></button>
-      <button class="gal-item" type="button" data-g="liv" data-i="28" aria-label="Ver foto 29"><img src="assets/l09.jpg" alt="AILEN DC" loading="lazy"></button>
-      <button class="gal-item" type="button" data-g="liv" data-i="29" aria-label="Ver foto 30"><img src="assets/l10.jpg" alt="AILEN DC" loading="lazy"></button>
-      <button class="gal-item" type="button" data-g="liv" data-i="30" aria-label="Ver foto 31"><img src="assets/l11.jpg" alt="AILEN DC" loading="lazy"></button>
-      <button class="gal-item" type="button" data-g="liv" data-i="31" aria-label="Ver foto 32"><img src="assets/l12.jpg" alt="AILEN DC" loading="lazy"></button>
-      <button class="gal-item" type="button" data-g="liv" data-i="32" aria-label="Ver foto 33"><img src="assets/l13.jpg" alt="AILEN DC" loading="lazy"></button>
-      <button class="gal-item" type="button" data-g="liv" data-i="33" aria-label="Ver foto 34"><img src="assets/l14.jpg" alt="AILEN DC" loading="lazy"></button>
-    </div>
-    <div class="gal-more"><button class="btn btn-solid" type="button" id="gal-more"></button></div>
-    <div class="gal-cta"><a class="btn btn-ghost" href="AILEN_DC_PRESS_PACK.zip" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 19.5h14"/></svg> Press pack · ZIP</a></div>
-  </div>
-</section>
-
 <!-- CABINAS -->
 <section id="cabinas">
   <div class="sec" style="padding-bottom:50px"><div class="eyebrow">Trayectoria</div><h2 class="title chrome reveal" style="margin-bottom:0">Cabinas</h2></div>
@@ -560,6 +550,15 @@ footer img { height: 34px; opacity: .85; }
   <div class="marq-label" style="margin-top:56px">Cabinas compartidas</div>
   <div class="marq alt rev"><div class="marq-track"><span>Bob Tosh</span><i></i><span>Brian Gros</span><i></i><span>Beico</span><i></i><span>Muter</span><i></i><span>Defai</span><i></i><span>Franco Smith</span><i></i><span>Nicolás Taboada</span><i></i><span>The Yellowheads</span><i></i><span>Alex Stein</span><i></i><span>Ramiro Lopez</span><i></i><span>Bob Tosh</span><i></i><span>Brian Gros</span><i></i><span>Beico</span><i></i><span>Muter</span><i></i><span>Defai</span><i></i><span>Franco Smith</span><i></i><span>Nicolás Taboada</span><i></i><span>The Yellowheads</span><i></i><span>Alex Stein</span><i></i><span>Ramiro Lopez</span><i></i></div></div>
   <div style="height:110px"></div>
+</section>
+
+<!-- PROXIMAS FECHAS -->
+<section id="fechas">
+  <div class="sec">
+    <div class="eyebrow">Agenda</div>
+    <h2 class="title chrome reveal">Próximas fechas</h2>
+    <div class="gigs reveal" id="gigs"><div class="skeleton"></div><div class="skeleton"></div><div class="skeleton"></div></div>
+  </div>
 </section>
 
 <!-- RIDER -->
