@@ -312,7 +312,19 @@ nav.solid { background: rgba(8,4,6,.9); }
 footer { border-top: 1px solid var(--line); padding: 38px 40px; display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; font: 400 .6rem/1.8 var(--mono); letter-spacing: .24em; text-transform: uppercase; color: var(--dim); }
 footer img { height: 34px; opacity: .85; }
 @media (max-width: 720px) { footer { flex-direction: column; text-align: center; } }
+
+/* nvlop-credit */
+.nvlop-credit{--nv-ink:var(--lilac2);--nv-dim:var(--dim);display:inline-flex;align-items:center;gap:10px;text-decoration:none;text-transform:uppercase;white-space:nowrap;opacity:.85;transition:opacity .25s}
+.nvlop-credit .nv-by{font-size:.9em;letter-spacing:.24em;color:var(--nv-dim);font-weight:400}
+.nvlop-credit .nv-mark{width:11px;height:11px;position:relative;flex:none;color:var(--nv-ink)}
+.nvlop-credit .nv-mark::before,.nvlop-credit .nv-mark::after{content:"";position:absolute;inset:0}
+.nvlop-credit .nv-mark::before{border:1.5px solid currentColor;transform:rotate(45deg)}
+.nvlop-credit .nv-mark::after{background:currentColor;border-radius:50%;transform:scale(.45)}
+.nvlop-credit .nv-word{font-family:'Barlow Condensed','Arial Narrow',sans-serif;font-weight:900;font-size:1.55em;letter-spacing:.18em;line-height:1;color:var(--nv-ink);transition:letter-spacing .25s}
+.nvlop-credit:hover{opacity:1}
+.nvlop-credit:hover .nv-word{letter-spacing:.26em}
 </style>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@900&text=NVLOP&display=swap" rel="stylesheet"><!-- nvlop-credit -->
 </head>
 <body>
 <div class="progress" id="progress"></div>
@@ -566,7 +578,7 @@ footer img { height: 34px; opacity: .85; }
   </div>
 </section>
 
-<footer><img src="assets/logo-moon.png" alt="AILEN DC"><span>AILEN DC — Electronic Presskit</span><span>© 2026 Divergente Agency · NVLOP</span></footer>
+<footer><img src="assets/logo-moon.png" alt="AILEN DC"><span>AILEN DC — Electronic Presskit</span><span>© 2026 Divergente Agency · NVLOP</span><a class="nvlop-credit" href="https://ecosistemanvlop.com" target="_blank" rel="noopener" aria-label="Powered by NVLOP"><span class="nv-by">Powered by</span><i class="nv-mark"></i><b class="nv-word">NVLOP</b></a></footer>
 
 <script>
 (function () {
